@@ -16,6 +16,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 // Components
 import { AppComponent } from './app.component';
 import { SearchFilterComponent } from './components/search-filter/search-filter.component';
+import { PortalModule } from '@angular/cdk/portal';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { SearchFilterComponent } from './components/search-filter/search-filter.
     MatButtonModule,
     MatIconModule,
     MatCardModule,
-    MatExpansionModule
+    MatExpansionModule,
+    OverlayModule,
+    PortalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

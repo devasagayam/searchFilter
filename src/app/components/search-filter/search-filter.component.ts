@@ -1,7 +1,9 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SearchFilterData } from './search-filter.interface';
 import { expandCollapse } from '../../animations';
+import { Overlay } from '@angular/cdk/overlay';
+import { CdkPortal } from '@angular/cdk/portal';
 
 @Component({
   selector: 'app-search-filter',
@@ -11,7 +13,8 @@ import { expandCollapse } from '../../animations';
 })
 export class SearchFilterComponent implements OnInit {
   @Output() filterChange = new EventEmitter<SearchFilterData>();
-  
+  overlay = inject(Overlay);
+  @ViewChild(CdkPortal) portal!: CdkPortal;
   filterForm: FormGroup;
   isExpanded = false;
 
@@ -32,6 +35,9 @@ export class SearchFilterComponent implements OnInit {
 
   toggleFilter(): void {
     this.isExpanded = !this.isExpanded;
+    // console.log(this.portal)
+    // const overlayRef = this.overlay.create();
+    // overlayRef.attach(this.portal);
   }
 
   onSubmit(): void {

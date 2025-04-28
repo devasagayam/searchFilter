@@ -23,5 +23,5 @@ export const expandCollapse = trigger('expandCollapse', [
       overflow: 'visible',
     })
   ),
-  transition('collapsed <=> expanded', animate('150ms ease-in-out')),
+  transition('collapsed <=> expanded', animate('1000ms ease-in-out')),
 ]);
