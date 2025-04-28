@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Search Filter Dropdown Demo</h1>
+
+  <app-search-filter
+    (filterChange)="handleFilterChange($event)"
+  ></app-search-filter>
+  Test data
+  <div class="card mt-16" *ngIf="filterData">
+    <h2>Applied Filters</h2>
+    <pre>{{ filterData | json }}</pre>
+  </div>
+</div>

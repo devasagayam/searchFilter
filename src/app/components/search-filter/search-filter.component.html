@@ -1,0 +1,57 @@
+<div class="search-filter-container">
+  <div class="search-filter-header" (click)="toggleFilter()">
+    <div class="header-content">
+      <mat-icon>filter_list</mat-icon>
+      <span>Filter</span>
+      <div class="active-indicator" *ngIf="hasActiveFilters">
+        <span class="active-dot"></span>
+        <span class="active-text">Active</span>
+      </div>
+    </div>
+    <mat-icon class="toggle-icon" [class.expanded]="isExpanded">
+      expand_more
+    </mat-icon>
+  </div>
+
+  <div class="search-filter-content" *ngIf="isExpanded">
+    <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Report Name</mat-label>
+          <input matInput formControlName="reportName" placeholder="Enter report name">
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" placeholder="Enter email address">
+          <mat-error *ngIf="emailControl?.hasError('email')">
+            Please enter a valid email address
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row" formGroupName="dateRange">
+        <mat-form-field appearance="outline">
+          <mat-label>Date Range</mat-label>
+          <mat-date-range-input [rangePicker]="picker">
+            <input matStartDate formControlName="start" placeholder="Start date">
+            <input matEndDate formControlName="end" placeholder="End date">
+          </mat-date-range-input>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" mat-stroked-button (click)="clearFilters()">
+          Clear
+        </button>
+        <button type="submit" mat-raised-button color="primary">
+          Search
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+h1 {
+  color: #333;
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+h2 {
+  color: #3f51b5;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+pre {
+  background-color: #f8f9fa;
+  padding: 16px;
+  border-radius: 4px;
+  overflow: auto;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.5;
+}
