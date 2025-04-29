@@ -4,6 +4,7 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 24px;
   overflow: visible;
+  position: relative;
 }
 
 .search-filter-container:hover {
@@ -51,6 +52,8 @@
 .search-filter-content {
   padding: 24px;
   background: white;
+  position: absolute;
+  width: calc(100% - 48px);
 }
 
 .form-row {
